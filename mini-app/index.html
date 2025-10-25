@@ -3,16 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini App</title>
+    <title>LogisticFam - Платформа идей</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-    Hello World!
-    <script>
-        const tg = window.Telegram.WebApp;
-        tg.expand();
-        tg.setBackgroundColor('#667eea');
-    </script>
+    <div id="app" class="app">
+        <!-- Шапка -->
+        <header class="header">
+            <h1>LogisticFam</h1>
+            <p class="subtitle">Платформа для улучшения нашей компании</p>
+        </header>
+
+        <!-- Навигация -->
+        <nav class="navbar">
+            <button class="nav-btn active" data-tab="ideas">Мои идеи</button>
+            <button class="nav-btn" data-tab="submit">Предложить идею</button>
+            <button class="nav-btn" data-tab="rating">Рейтинг</button>
+            <!-- <button class="nav-btn" data-tab="admin" id="admin-tab" style="display: none;">Модерация</button> -->
+        </nav>
+
+        <!-- Контент -->
+        <div class="content">
+            <!-- Вкладка: Мои идеи -->
+            <div id="ideas-tab" class="tab-content active">
+                <h2 style="padding: 20px 20px 0; color: #2c3e50;">Мои идеи</h2>
+                <div id="my-ideas-list" class="ideas-list">
+                    <!-- Идеи загружаются через JS -->
+                </div>
+            </div>
+
+            <!-- Вкладка: Предложить идею -->
+            <div id="submit-tab" class="tab-content">
+                <div class="idea-form">
+                    <h2 style="color: #2c3e50; margin-bottom: 20px;">Предложить идею</h2>
+                    <form id="idea-form">
+                        <div class="form-group">
+                            <label for="description">Описание идеи *</label>
+                            <textarea id="description" name="description" required 
+                                      placeholder="Опишите вашу идею подробно..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="justification">Обоснование</label>
+                            <textarea id="justification" name="justification" 
+                                      placeholder="Почему это улучшит процессы или сэкономит деньги?"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="evidence-link">Ссылка на доказательства</label>
+                            <input type="url" id="evidence-link" name="evidence_link" 
+                                   placeholder="https://docs.google.com/...">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox">
+                                <input type="checkbox" id="is-anonymous" name="is_anonymous">
+                                <span class="checkmark"></span>
+                                Отправить анонимно
+                            </label>
+                            <small style="color: #6c757d; display: block; margin-top: 5px;">
+                                Идея будет без вашего имени в рейтинге, но модератор увидит автора
+                            </small>
+                        </div>
+
+                        <button type="submit" class="btn-primary">Отправить на рассмотрение</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Вкладка: Рейтинг -->
+            <div id="rating-tab" class="tab-content">
+                <div class="rating-section">
+                    <div class="rating-header">
+                        <h2>Рейтинг пользователей</h2>
+                        <p>Узнай на каком месте ты и твои коллеги в рейтинге. Никогда не поздно стать первым!</p>
+                    </div>
+                    
+                    <div id="top-users-list" class="users-list">
+                        <!-- Рейтинг загружается через JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Вкладка: Админка
+            <div id="admin-tab" class="tab-content">
+                <div style="padding: 20px;">
+                    <h2 style="color: #2c3e50; margin-bottom: 20px;">Модерация идей</h2>
+                    <div id="pending-ideas-list" class="pending-list">
+                        <!-- Идеи на модерации загружаются через JS -->
+                    <!-- </div> -->
+                <!-- </div> -->
+            <!-- </div> -->
+        </div>
+    </div>
+
+    <!-- Подключаем JavaScript файлы в ПРАВИЛЬНОМ порядке -->
+    <script src="auth.js"></script>
+    <script src="app.js"></script>
+    <script src="ideas.js"></script>
+    <script src="rating.js"></script>
+    <!-- <script src="admin.js"></script> -->
 </body>
 </html>
