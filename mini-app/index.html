@@ -13,14 +13,6 @@
             <h1>The Idea Hub</h1>
         </header>
 
-        <!-- Навигация -->
-        <nav class="navbar">
-            <button class="nav-btn active" data-tab="ideas">💡</button>
-            <button class="nav-btn" data-tab="submit">✍️</button>
-            <button class="nav-btn" data-tab="rating">🏆</button>
-            <!-- <button class="nav-btn" data-tab="admin" id="admin-tab" style="display: none;">Модерация</button> -->
-        </nav>
-
         <!-- Контент -->
         <div class="content">
             <!-- Вкладка: Мои идеи -->
@@ -38,19 +30,19 @@
                     <form id="idea-form">
                         <div class="form-group">
                             <label for="description">Описание идеи *</label>
-                            <textarea id="description" name="description" required 
+                            <textarea id="description" name="description" required
                                       placeholder="Опишите вашу идею подробно..."></textarea>
                         </div>
 
                         <div class="form-group">
                             <label for="justification">Обоснование</label>
-                            <textarea id="justification" name="justification" 
+                            <textarea id="justification" name="justification"
                                       placeholder="Почему это улучшит процессы или сэкономит деньги?"></textarea>
                         </div>
 
                         <div class="form-group">
                             <label for="evidence-link">Ссылка на доказательства</label>
-                            <input type="url" id="evidence-link" name="evidence_link" 
+                            <input type="url" id="evidence-link" name="evidence_link"
                                    placeholder="https://docs.google.com/...">
                         </div>
 
@@ -77,26 +69,35 @@
                         <h2>Рейтинг пользователей</h2>
                         <p>Узнай на каком месте ты и твои коллеги в рейтинге. Никогда не поздно стать первым!</p>
                     </div>
-                    
+
                     <div id="top-users-list" class="users-list">
                         <!-- Рейтинг загружается через JS -->
                     </div>
                 </div>
             </div>
 
-            <!-- Вкладка: Админка
+            <!-- Закомментированная админка (оставлена как в оригинале) -->
+            <!--
             <div id="admin-tab" class="tab-content">
                 <div style="padding: 20px;">
                     <h2 style="color: #2c3e50; margin-bottom: 20px;">Модерация идей</h2>
                     <div id="pending-ideas-list" class="pending-list">
-                        <!-- Идеи на модерации загружаются через JS -->
-                    <!-- </div> -->
-                <!-- </div> -->
-            <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+            -->
         </div>
+
+        <!-- Нижняя навигация -->
+        <nav class="navbar navbar-bottom">
+            <button class="nav-btn active" data-tab="ideas">💡</button>
+            <button class="nav-btn" data-tab="submit">✍️</button>
+            <button class="nav-btn" data-tab="rating">🏆</button>
+            <!-- <button class="nav-btn" data-tab="admin" id="admin-tab-btn" style="display: none;">Модерация</button> -->
+        </nav>
     </div>
 
-    <!-- Подключаем JavaScript файлы в ПРАВИЛЬНОМ порядке -->
+    <!-- JavaScript -->
     <script src="auth.js"></script>
     <script src="app.js"></script>
     <script src="ideas.js"></script>
