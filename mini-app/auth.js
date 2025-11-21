@@ -12,6 +12,10 @@ class Auth {
             username: "arseny_m",
             is_moderator: true
         };
+        
+        // Сохраняем пользователя для глобального доступа
+        window.currentAuthUser = this.user;
+        
         this.initManagers();
         this.startApp();
     }
@@ -23,6 +27,11 @@ class Auth {
         
         if (typeof RatingSystem !== 'undefined') {
             window.ratingSystem = new RatingSystem();
+        }
+
+        // Инициализируем ProfileManager
+        if (window.profileManager) {
+            window.profileManager.init(this.user);
         }
     }
 
@@ -38,4 +47,9 @@ class Auth {
     }
 }
 
-new Auth();
+// Запускаем авторизацию когда DOM готов
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => new Auth());
+} else {
+    new Auth();
+}
